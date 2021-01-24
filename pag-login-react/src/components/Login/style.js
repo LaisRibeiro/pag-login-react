@@ -11,7 +11,9 @@ export const useStyles = makeStyles((theme) => ({
       TextField: {
         fontFamily: 'sans-serif',
         color: '#696969',
-        width: 'flex',
-        minHeight: '300px'
-      }
+        width: '350px'
+      },
+      margin: {
+        margin: theme.spacing(1),
+      },
 }));

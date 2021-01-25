@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState } from 'react';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom'
 
@@ -12,22 +12,52 @@ export default function Login(){
 
     const classes = useStyles();
 
-    const [user, setUser] = React.useState({
+    const [user, setUser] = useState({
         nameOrEmail: '',
         password: '',
       });
 
+    const [auxUser, setAuxUser] = useState([]);
+
     const handleChange = (prop) => (event) => {
         setUser({ ...user, [prop]: event.target.user });
-      };
+    };
 
     const handleClickShowPassword = () => {
         setUser({ ...user, showPassword: !user.showPassword });
-      };
+    };
     
-      const handleMouseDownPassword = (event) => {
+    const handleMouseDownPassword = (event) => {
+       event.preventDefault();
+    };
+
+    const handleChangeUser = (event, nameOrEmail, password) => {
         event.preventDefault();
-      };
+	    getLogin(nameOrEmail, password);
+	};
+
+    const getLogin = (nameOrEmail, password) => {
+		fetch('./users.json', {
+			headers: {
+				Accept: "application/json"
+			}
+		})
+		.then(res => res.json())
+		.then(res => setAuxUser(res.users))
+
+		var arrayFilter = auxUser.filter(value => {
+            if(value.email === nameOrEmail){
+                if(value.password === password){
+                    return alert("Login Efetuado com sucesso");
+                }else {
+                    return alert("Senha Incorreta");
+                }
+            }else {
+                return alert("Nome ou Email digitado incorretamente");
+            }
+		});
+
+	}
 
     return (
 		<div className={classes.root}>
@@ -77,7 +107,9 @@ export default function Login(){
                             </LinkMat>
                         </Grid>
                         <Grid item xs={12} align='center' style={{ marginTop: '30px' }}>
-                          <Button variant="contained" className={classes.button} >Sign in</Button>
+                            <Button variant="contained" className={classes.button} onClick={event => handleChangeUser(event, user.nameOrEmail, user.password)}>
+                                Sign in
+                            </Button>
                           <Divider variant="middle" style={{ marginTop: '30px', width: '350px' }} />
                         </Grid>
                         <Grid item xs={12} align='center'>

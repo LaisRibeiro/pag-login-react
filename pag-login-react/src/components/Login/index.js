@@ -80,6 +80,13 @@ export default function Login(){
                           <Button variant="contained" className={classes.button} >Sign in</Button>
                           <Divider variant="middle" style={{ marginTop: '30px', width: '350px' }} />
                         </Grid>
+                        <Grid item xs={12} align='center'>
+                            <Typography className={classes.TextField}>New Invision?
+                                <LinkMat component={Link} to="/register-user">
+                                    Create Account
+                                </LinkMat>
+                            </Typography>
+                        </Grid>
                     </Grid>                                                                                                                                                                                                                                                                                                                                                             
                 </Grid>
             </Grid>

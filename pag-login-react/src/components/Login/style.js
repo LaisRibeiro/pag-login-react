@@ -20,6 +20,7 @@ export const useStyles = makeStyles((theme) => ({
       button: {
         borderRadius: '30px',
         backgroundColor: '#8B8989',
-        width: '150px'
+        width: '150px',
+        color: '#ffffff'
       }
 }));

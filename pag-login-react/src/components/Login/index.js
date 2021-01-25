@@ -1,7 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
+import { Link } from 'react-router-dom'
 
-import { Typography, Grid, TextField, FormControl, InputLabel, Input, InputAdornment, IconButton  } from '@material-ui/core/';
+import { Typography, Grid, TextField, FormControl, InputLabel, Input, InputAdornment, IconButton, Button, Divider } from '@material-ui/core/';
+import LinkMat from '@material-ui/core/Link';
 import { Visibility, VisibilityOff } from '@material-ui/icons/';
 
 import { useStyles } from './style';
@@ -29,7 +31,7 @@ export default function Login(){
 
     return (
 		<div className={classes.root}>
-            <Grid container spacing={3}>
+            <Grid container style={{ display: 'flex' }}>
                 <Grid item xs={12} align='right'>
                     <Typography variant="h4" gutterBottom style={{ marginTop: '50px', marginRight: '70px' }}>
                         Invision
@@ -48,13 +50,14 @@ export default function Login(){
                             />
                     </Grid>
                     <Grid item xs={12} align='center'>
-                        <FormControl className={clsx(classes.margin, classes.textField)}>
+                        <FormControl className={clsx(classes.margin, classes.textField)} style={{ marginTop: '20px' }}>
                             <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
                             <Input
                                 id="standard-adornment-password"
                                 type={user.showPassword ? 'text' : 'password'}
                                 value={user.password}
                                 onChange={handleChange('password')}
+                                style={{ width: 'flex', minWidth: '350px' }}
                                 endAdornment={
                                 <InputAdornment position="end">
                                     <IconButton
@@ -68,7 +71,16 @@ export default function Login(){
                                 }
                             />
                         </FormControl>
-                    </Grid>
+                        <Grid item xs={12} align='center'>
+                            <LinkMat component={Link} to="/">
+                                Forget password?
+                            </LinkMat>
+                        </Grid>
+                        <Grid item xs={12} align='center' style={{ marginTop: '30px' }}>
+                          <Button variant="contained" className={classes.button} >Sign in</Button>
+                          <Divider variant="middle" style={{ marginTop: '30px', width: '350px' }} />
+                        </Grid>
+                    </Grid>                                                                                                                                                                                                                                                                                                                                                             
                 </Grid>
             </Grid>
         </div> 

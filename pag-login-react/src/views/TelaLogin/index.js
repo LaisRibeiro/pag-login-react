@@ -11,11 +11,11 @@ export default function TelaLogin(){
 
     return (
 		<div className={classes.root}>
-            <Grid container spacing={3}>
-                <Grid item xs={6}>
+            <Grid container>
+                <Grid item xs style={{ display: 'flex' }}>
                     <Paper className={classes.paper}>xs=6</Paper>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs sm={6} style={{ display: 'flex' }}>
                     <Login/>
                 </Grid>
             </Grid>

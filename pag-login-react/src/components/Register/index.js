@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import { Typography, Grid, TextField, FormControl, InputLabel, Input, InputAdornment, IconButton, Button, Divider } from '@material-ui/core/';
 import LinkMat from '@material-ui/core/Link';
@@ -29,6 +29,10 @@ export default function Login(){
         event.preventDefault();
       };
 
+      const responseGoogle = (response) => {
+        console.log(response);
+      };
+      
     return (
 		<div className={classes.root}>
             <Grid container style={{ display: 'flex' }}>
@@ -85,8 +89,15 @@ export default function Login(){
                             </LinkMat>
                         </Grid>
                         <Grid item xs={12} align='center' style={{ marginTop: '30px' }}>
-                          <Button variant="contained" className={classes.button} >Sign in</Button>
+                          <Button variant="contained" className={classes.button}>Sign in</Button>
                           <Divider variant="middle" style={{ marginTop: '30px', width: '350px' }} />
+                        </Grid>
+                        <Grid item xs={12} align='center'>
+                            <Typography className={classes.TextField}>Already on Invision?
+                                <LinkMat component={Link} to="/">
+                                    Log in
+                                </LinkMat>
+                            </Typography>
                         </Grid>
                     </Grid>                                                                                                                                                                                                                                                                                                                                                             
                 </Grid>

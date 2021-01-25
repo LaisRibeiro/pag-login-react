@@ -4,6 +4,7 @@ import { Paper, Grid } from '@material-ui/core/';
 
 import { useStyles } from './style';
 import Register from '../../components/Register';
+import Banner from '../../components/Banner';
 
 export default function TelaRegister(){
 
@@ -13,7 +14,7 @@ export default function TelaRegister(){
 		<div className={classes.root}>
             <Grid container>
                 <Grid item xs style={{ display: 'flex' }}>
-                    <Paper className={classes.paper}>xs=6</Paper>
+                    <Banner/>
                 </Grid>
                 <Grid item xs sm={6} style={{ display: 'flex' }}>
                     <Register/>
